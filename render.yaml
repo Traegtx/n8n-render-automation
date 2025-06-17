@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: n8n-automation
+    runtime: docker
+    plan: starter
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    envVars:
+      - key: DB_TYPE
+        value: sqlite
+      - key: DB_SQLITE_DATABASE
+        value: /data/database.sqlite
+      - key: N8N_USER_FOLDER
+        value: /data
+      - key: N8N_HOST
+        value: 0.0.0.0
+      - key: N8N_PORT
+        value: 5678
+      - key: N8N_PROTOCOL
+        value: https
+      - key: WEBHOOK_URL
+        fromService:
+          type: web
+          name: n8n-automation
+          property: host
+      - key: N8N_METRICS
+        value: true
+      - key: DB_SQLITE_VACUUM_ON_STARTUP
+        value: true
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+    disk:
+      name: n8n-data
+      mountPath: /data
+      sizeGB: 1
