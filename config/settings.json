@@ -1,0 +1,11 @@
+{
+  "database": {
+    "type": "sqlite",
+    "sqlite": {
+      "database": "/data/database.sqlite"
+    }
+  },
+  "settings": {
+    "timezone": "America/New_York"
+  }
+}
