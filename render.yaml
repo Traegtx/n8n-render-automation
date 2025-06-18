@@ -4,7 +4,8 @@ services:
     runtime: docker
     plan: starter
     region: oregon
-    dockerfilePath: ./Dockerfile
+    image:
+      url: n8nio/n8n:latest
     healthCheckPath: /healthz
     envVars:
       - key: DB_TYPE
