@@ -10,15 +10,17 @@ services:
       - key: DB_TYPE
         value: sqlite
       - key: DB_SQLITE_DATABASE
-        value: /data/database.sqlite
+        value: /data/.n8n/database.sqlite
       - key: N8N_USER_FOLDER
-        value: /data
+        value: /data/.n8n
       - key: N8N_HOST
         value: 0.0.0.0
       - key: N8N_PORT
         value: 5678
       - key: N8N_PROTOCOL
         value: https
+      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+        value: "false"
       - key: WEBHOOK_URL
         fromService:
           type: web
@@ -28,9 +30,19 @@ services:
         value: true
       - key: DB_SQLITE_VACUUM_ON_STARTUP
         value: true
+      - key: N8N_LOG_LEVEL
+        value: info
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: false
+      - key: N8N_DISABLE_UI
+        value: false
       - key: OPENAI_API_KEY
         sync: false
       - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: PINECONE_ENVIRONMENT
         sync: false
     disk:
       name: n8n-data
