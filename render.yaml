@@ -30,19 +30,9 @@ services:
         value: true
       - key: DB_SQLITE_VACUUM_ON_STARTUP
         value: true
-      - key: N8N_LOG_LEVEL
-        value: info
-      - key: N8N_BASIC_AUTH_ACTIVE
-        value: false
-      - key: N8N_DISABLE_UI
-        value: false
       - key: OPENAI_API_KEY
         sync: false
       - key: ANTHROPIC_API_KEY
-        sync: false
-      - key: PINECONE_API_KEY
-        sync: false
-      - key: PINECONE_ENVIRONMENT
         sync: false
     disk:
       name: n8n-data
